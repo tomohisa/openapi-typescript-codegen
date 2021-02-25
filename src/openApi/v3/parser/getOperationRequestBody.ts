@@ -44,6 +44,7 @@ export function getOperationRequestBody(openApi: OpenApi, parameter: OpenApiRequ
                 const model = getModel(openApi, schema);
                 if (model.content == "multipart/form-data") {
                     requestBody.name = 'formData'
+                    return requestBody;
                 }
                 requestBody.export = model.export;
                 requestBody.type = model.type;
@@ -71,6 +72,7 @@ export function getOperationRequestBody(openApi: OpenApi, parameter: OpenApiRequ
                 requestBody.enum.push(...model.enum);
                 requestBody.enums.push(...model.enums);
                 requestBody.properties.push(...model.properties);
+
                 return requestBody;
             }
         }
